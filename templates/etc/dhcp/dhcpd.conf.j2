@@ -74,10 +74,10 @@ subnet {{ item.subnet }} netmask {{ item.netmask }} {
     next-server {{ isc_dhcp_pxe_boot_server }};
 {%     endif %}
 {% if item.ddns_domainname is defined %}
-    ddns-domainname: {{ item.ddns_domainname }};
+    ddns-domainname {{ item.ddns_domainname }};
 {% endif %}
 {% if item.ddns_rev_domainname is defined %}
-    ddns-rev-domainname: {{ item.ddns_rev_domainname }};
+    ddns-rev-domainname {{ item.ddns_rev_domainname }};
 {% endif %}
 
     default-lease-time {{ item.default_lease_time }};
