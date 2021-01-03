@@ -48,7 +48,7 @@ failover peer "failover" {
   port {{ isc_dhcp_failover_info.secondary_port|default('520') }};
 {%     for host in groups[isc_dhcp_failover_info.failover_group] %}
 {%       if inventory_hostname != host %}
-  peer address {{ host }};
+  peer address {{ hostvars[host].ansible_default_ipv4.address }};
 {%       endif %}
 {%     endfor %}
   peer port {{ isc_dhcp_failover_info.primary_port|default('519') }};
