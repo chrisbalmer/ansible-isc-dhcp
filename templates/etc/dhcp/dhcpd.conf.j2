@@ -73,11 +73,11 @@ subnet {{ item.subnet }} netmask {{ item.netmask }} {
     option bootfile-name "{{ isc_dhcp_pxe_boot_file }}";
     next-server {{ isc_dhcp_pxe_boot_server }};
 {%     endif %}
-{% if item.ddns-domainname is defined %}
-    ddns-domainname: {{ item.ddns-domainname }}
+{% if item.ddns_domainname is defined %}
+    ddns-domainname: {{ item.ddns_domainname }}
 {% endif %}
-{% if item.ddns-rev-domainname is defined %}
-    ddns-rev-domainname: {{ item.ddns-rev-domainname }}
+{% if item.ddns_rev_domainname is defined %}
+    ddns-rev-domainname: {{ item.ddns_rev_domainname }}
 {% endif %}
 
     default-lease-time {{ item.default_lease_time }};
